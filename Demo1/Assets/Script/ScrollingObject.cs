@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollingObject : MonoBehaviour {
-
-    private Rigidbody2D rb2d;
+public class ScrollingObject : GameObject {
 
 	// Use this for initialization
-	void Start () 
+    public void Start ()
     {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        if (GameControl.instance.gameOver == true)
-        {
-            SpriteRenderer sr = GetComponent<SpriteRenderer>();
-            sr.color = new Vector4(255, 0, 0, 1);
-            rb2d.velocity = Vector2.zero;
+
+    public void Update(){
+        if (GameControl.instance.isGameOver){
+            scrollingStop();
         }
-	}
+    }
+
+    private void scrollingStop(){
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = new Vector4(255, 0, 0, 1);
+        rb2d.velocity = Vector2.zero;
+    }
 }
