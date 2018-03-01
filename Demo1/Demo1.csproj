@@ -292,6 +292,12 @@
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
+=======
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+>>>>>>> master
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>/Users/Aaron/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -313,9 +319,12 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>/Users/Aaron/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+=======
+>>>>>>> master
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -325,10 +334,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\GameControl.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Script\GameObject.cs" />
     <Compile Include="Assets\Script\GravityObject.cs" />
     <Compile Include="Assets\Script\InScreenGravityObject.cs" />
     <Compile Include="Assets\Script\OutScreenGravityObject.cs" />
+=======
+    <Compile Include="Assets\Script\GravityControl.cs" />
+>>>>>>> master
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\ScrollingObject.cs" />
   </ItemGroup>
