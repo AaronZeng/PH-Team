@@ -52,7 +52,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\GameControl.cs" />
+<<<<<<< HEAD
+     <Compile Include="Assets\Script\GameObject.cs" />
+     <Compile Include="Assets\Script\GravityObject.cs" />
+     <Compile Include="Assets\Script\InScreenGravityObject.cs" />
+     <Compile Include="Assets\Script\OutScreenGravityObject.cs" />
+=======
      <Compile Include="Assets\Script\GravityControl.cs" />
+>>>>>>> master
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\ScrollingObject.cs" />
  <Reference Include="UnityEngine.UI">

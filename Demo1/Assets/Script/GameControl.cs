@@ -15,10 +15,11 @@ public static class RendererExtensions
 public class GameControl : MonoBehaviour {
 
     public static GameControl instance;
-    public bool gameOver = false;
+    public bool isGameOver = false;
+    public bool isChangeGravity = false;
     public float scrollSpeed = -6f;
 
-    void Awake()
+    public void Awake()
     {
         Input.multiTouchEnabled = true;
 
@@ -30,26 +31,12 @@ public class GameControl : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
     }
-	
-	// Update is called once per frame
-    void Update()
-    {
-        PlayerDied();
 
-        if (gameOver == true && Input.touchCount == 2)
+    public void Update(){
+        if (isGameOver && (Input.GetMouseButtonDown(1) || Input.touchCount == 2))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
-
-    public void PlayerDied()
-    {
-        if (Player.rb2d.position.y < -7.5f || Player.rb2d.position.y > 7.5f 
-            || Player.rb2d.position.x < -9f || Player.rb2d.position.x > 9f)
-        {
-            gameOver = true;
         }
     }
 }
