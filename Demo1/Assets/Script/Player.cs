@@ -6,20 +6,25 @@ public class Player : GravityObject {
     private float upForce = 400f;
     private float cd = 2f;
     private float nextCd;
+    private float gyroOne;
+    private float gyroTwo;
+    private float gyroThree;
 
     // Update is called once per frame
     public new void Update()
     {
         checkObjectInScreen();
 
-        if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButtonDown(1)) && Time.time > nextCd)
+        if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButtonDown(1) || checkTurnOver()) && Time.time > nextCd)
         {
             nextCd = Time.time + cd;
             GameControl.instance.isChangeGravity = true;
+            GameControl.instance.realTimeText.text = GameControl.instance.positionString + "\nchange the gravity";
         }
 
         if (checkPlayerDied()){
             GameControl.instance.isGameOver = true;
+            GameControl.instance.realTimeText.text = GameControl.instance.positionString + "\ndie";
         }
     }
 
@@ -36,6 +41,7 @@ public class Player : GravityObject {
             {
                 rb2d.AddForce(new Vector2(0, -upForce));
             }
+            GameControl.instance.realTimeText.text = GameControl.instance.positionString + "\njump";
         }
     }
 
@@ -49,5 +55,19 @@ public class Player : GravityObject {
         {
             return false;
         }
+    }
+
+    private bool checkTurnOver(){
+      if (Time.frameCount % 20 == 0){
+        gyroThree = gyroTwo;
+        gyroTwo = gyroOne;
+        gyroOne = Input.gyro.attitude.y;
+        GameControl.instance.positionString = "gyro datas: " + gyroOne + " " + gyroTwo + " " + gyroThree;
+      }
+      if ((gyroTwo - gyroThree < -0.3) && (gyroOne - gyroTwo > 0.3))
+      {
+        return true;
+      }
+      return false;
     }
 }
