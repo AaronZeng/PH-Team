@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public static class RendererExtensions
 {
@@ -14,6 +15,8 @@ public static class RendererExtensions
 
 public class GameControl : MonoBehaviour {
 
+    public Text realTimeText;
+    public string positionString = "start";
     public static GameControl instance;
     public bool isGameOver = false;
     public bool isChangeGravity = false;
@@ -31,6 +34,8 @@ public class GameControl : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        Input.gyro.enabled = true;
     }
 
     public void Update(){
