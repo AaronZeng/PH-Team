@@ -9,11 +9,15 @@ public class Player : GravityObject {
     private float gyroOne;
     private float gyroTwo;
     private float gyroThree;
+    private List<float> gyroList = new List<float>();
 
     // Update is called once per frame
     public new void Update()
     {
         checkObjectInScreen();
+
+        gyroListRefresh();
+        GameControl.instance.realTimeText.text = GameControl.instance.positionString;
 
         if (((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButtonDown(1) || checkTurnOver()) && Time.time > nextCd)
         {
@@ -57,17 +61,28 @@ public class Player : GravityObject {
         }
     }
 
+    private void gyroListRefresh(){
+        gyroList.Add(Input.gyro.attitude.y);
+        if (gyroList.Count > 41)
+        {
+            gyroList.Remove(0);
+        }
+        print(gyroList.Count);
+    }
+
     private bool checkTurnOver(){
-      if (Time.frameCount % 20 == 0){
-        gyroThree = gyroTwo;
-        gyroTwo = gyroOne;
-        gyroOne = Input.gyro.attitude.y;
-        GameControl.instance.positionString = "gyro datas: " + gyroOne + " " + gyroTwo + " " + gyroThree;
-      }
-      if ((gyroTwo - gyroThree < -0.3) && (gyroOne - gyroTwo > 0.3))
-      {
-        return true;
-      }
-      return false;
+        if (Time.frameCount > 40 )
+        {
+            gyroThree = gyroList[40];
+            gyroTwo = gyroList[20];
+            gyroOne = gyroList[0];
+            GameControl.instance.positionString = "gyro datas: " + gyroOne + " " + gyroTwo + " " + gyroThree;
+
+            if ((gyroTwo - gyroThree < -0.3) && (gyroOne - gyroTwo > 0.3))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
