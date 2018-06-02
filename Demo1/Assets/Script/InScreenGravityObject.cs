@@ -20,9 +20,11 @@ public class InScreenGravityObject : MonoBehaviour {
         foreach (Transform child in transform){
             Rigidbody2D rb2d = child.gameObject.GetComponent<Rigidbody2D>();
             SpriteRenderer sr = child.gameObject.GetComponent<SpriteRenderer>();
+            Transform tfChild = child.gameObject.GetComponent<Transform>();
             rb2d.velocity = Vector2.zero;
             rb2d.gravityScale *= -1;
             sr.flipY = !sr.flipY;
+            //tfChild.Rotate(0,0,180f);
         }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : GravityObject {
-    private float upForce = 400f;
-    private float cd = 2f;
+    private float upForce = 350f;
+    private float cd = 1f;
     private float nextCd;
     private float gyroOne;
     private float gyroTwo;
@@ -53,7 +53,7 @@ public class Player : GravityObject {
     {
         if (gameObject.transform.parent == OutScreenGravityObject.tf)
         {
-            return true;
+            return false;
         }
         else
         {
