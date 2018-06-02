@@ -6,7 +6,7 @@
       <File FileName="Assets/Script/GameObject.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/InScreenGravityObject.cs" Line="25" Column="34" />
       <File FileName="Assets/Script/OutScreenGravityObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Player.cs" Line="26" Column="48" />
+      <File FileName="Assets/Script/Player.cs" Line="65" Column="45" />
       <File FileName="Assets/Script/ScrollingObject.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
