@@ -3177,7 +3177,7 @@ MonoBehaviour:
   positionString: 'position: (0,0,0)'
   isGameOver: 0
   isChangeGravity: 0
-  scrollSpeed: -5
+  scrollSpeed: -10
 --- !u!4 &1458989186
 Transform:
   m_ObjectHideFlags: 0

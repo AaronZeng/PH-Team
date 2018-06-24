@@ -20,7 +20,7 @@ public class GameControl : MonoBehaviour {
     public static GameControl instance;
     public bool isGameOver = false;
     public bool isChangeGravity = false;
-    public float scrollSpeed = -6f;
+    public float scrollSpeed = -8f;
 
     public void Awake()
     {

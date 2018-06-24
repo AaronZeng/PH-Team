@@ -53,7 +53,7 @@ public class Player : GravityObject {
     {
         if (gameObject.transform.parent == OutScreenGravityObject.tf)
         {
-            return false;
+            return true;
         }
         else
         {
@@ -71,7 +71,7 @@ public class Player : GravityObject {
     }
 
     private bool checkTurnOver(){
-        if (Time.frameCount > 40 )
+        if (Time.frameCount > 40)
         {
             gyroThree = gyroList[40];
             gyroTwo = gyroList[20];
